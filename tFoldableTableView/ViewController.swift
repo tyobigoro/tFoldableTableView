@@ -13,10 +13,11 @@ class Item {
     var showsSelf: Bool = true
 }
 
-
 class ViewController: UIViewController {
 
-    var dArray = [[Item(), Item(), Item(), Item()], [Item(), Item(), Item(), Item()], [Item(), Item(), Item(), Item()]]
+    var dArray = [[Item(), Item(), Item(), Item()],
+                  [Item(), Item(), Item(), Item()],
+                  [Item(), Item(), Item(), Item()]]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,7 +29,6 @@ class ViewController: UIViewController {
         
     }
 
-    
     func getSection(header: UITableViewHeaderFooterView) -> Int? {
         let point = CGPoint(x: header.frame.midX, y: header.frame.midY)
         var i: Int? = nil
@@ -49,13 +49,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return dArray.count
     }
     
-    // generateSection
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Header") as! SectionHeader
         header.sectoionHeaderDelegate = self
-        
         return header
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,7 +63,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = String(format: "%02d", indexPath.section) + String(format: "%02d", indexPath.row)
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -76,8 +72,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
-    
-    
 }
 
 extension ViewController: SectionHeaderDelegate {
@@ -93,13 +87,9 @@ extension ViewController: SectionHeaderDelegate {
     
     func rowsBtnDidTap(_ header: UITableViewHeaderFooterView) {
         guard let seciton = getSection(header: header) else { return }
-        
         let indexPaths = dArray[seciton].enumerated().map { IndexPath(row: $0.offset, section: seciton)}
-        
         let isVisible = dArray[seciton].first!.showsSelf
-        
         dArray[seciton].forEach { $0.showsSelf = isVisible ? false : true }
-        
         
         // ここでアニメーション変えてみて
         if isVisible {
