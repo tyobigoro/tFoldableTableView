@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="SectionHeader" customModule="tFoldableTableView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKc-6t-STo">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYK-DS-8nV">
+                    <rect key="frame" x="30" y="15" width="60" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="JNK-5h-KeU"/>
+                        <constraint firstAttribute="height" constant="30" id="cBO-7e-WXP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="section"/>
+                    <connections>
+                        <action selector="sectionBtnDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vs2-NS-3ut"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMh-nQ-Ig3">
+                    <rect key="frame" x="324" y="15" width="60" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="UrO-dX-46T"/>
+                        <constraint firstAttribute="width" constant="60" id="Zqu-nh-Edv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="rows"/>
+                    <connections>
+                        <action selector="rowsBtnDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="mgY-1T-fLz"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="ZKc-6t-STo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7gL-qC-8tC"/>
+                <constraint firstAttribute="trailing" secondItem="nMh-nQ-Ig3" secondAttribute="trailing" constant="30" id="Hmv-39-cZC"/>
+                <constraint firstItem="lYK-DS-8nV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Wav-g0-qxr"/>
+                <constraint firstItem="ZKc-6t-STo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZGe-7x-pZf"/>
+                <constraint firstAttribute="bottom" secondItem="ZKc-6t-STo" secondAttribute="bottom" id="bGb-6D-l18"/>
+                <constraint firstAttribute="trailing" secondItem="ZKc-6t-STo" secondAttribute="trailing" id="ofN-w8-0qf"/>
+                <constraint firstItem="lYK-DS-8nV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="pkB-yF-kXh"/>
+                <constraint firstItem="nMh-nQ-Ig3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="yNt-52-pkD"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="rowBtn" destination="nMh-nQ-Ig3" id="99H-V8-np9"/>
+                <outlet property="sectionBtn" destination="lYK-DS-8nV" id="dWQ-fN-UyR"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+</document>

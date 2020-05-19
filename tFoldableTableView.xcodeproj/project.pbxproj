@@ -13,6 +13,8 @@
 		212DF5C524744B0C00FC2782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212DF5C324744B0C00FC2782 /* Main.storyboard */; };
 		212DF5C724744B0F00FC2782 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 212DF5C624744B0F00FC2782 /* Assets.xcassets */; };
 		212DF5CA24744B0F00FC2782 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212DF5C824744B0F00FC2782 /* LaunchScreen.storyboard */; };
+		212DF5D224744DDF00FC2782 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212DF5D124744DDF00FC2782 /* SectionHeader.swift */; };
+		212DF5D424744DF900FC2782 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212DF5D324744DF900FC2782 /* SectionHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		212DF5C624744B0F00FC2782 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		212DF5C924744B0F00FC2782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		212DF5CB24744B0F00FC2782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		212DF5D124744DDF00FC2782 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		212DF5D324744DF900FC2782 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				212DF5BD24744B0C00FC2782 /* AppDelegate.swift */,
 				212DF5BF24744B0C00FC2782 /* SceneDelegate.swift */,
 				212DF5C124744B0C00FC2782 /* ViewController.swift */,
+				212DF5D124744DDF00FC2782 /* SectionHeader.swift */,
+				212DF5D324744DF900FC2782 /* SectionHeader.xib */,
 				212DF5C324744B0C00FC2782 /* Main.storyboard */,
 				212DF5C624744B0F00FC2782 /* Assets.xcassets */,
 				212DF5C824744B0F00FC2782 /* LaunchScreen.storyboard */,
@@ -125,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212DF5D424744DF900FC2782 /* SectionHeader.xib in Resources */,
 				212DF5CA24744B0F00FC2782 /* LaunchScreen.storyboard in Resources */,
 				212DF5C724744B0F00FC2782 /* Assets.xcassets in Resources */,
 				212DF5C524744B0C00FC2782 /* Main.storyboard in Resources */,
@@ -138,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212DF5D224744DDF00FC2782 /* SectionHeader.swift in Sources */,
 				212DF5C224744B0C00FC2782 /* ViewController.swift in Sources */,
 				212DF5BE24744B0C00FC2782 /* AppDelegate.swift in Sources */,
 				212DF5C024744B0C00FC2782 /* SceneDelegate.swift in Sources */,
