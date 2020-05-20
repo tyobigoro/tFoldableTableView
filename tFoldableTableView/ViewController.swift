@@ -34,6 +34,21 @@ class ViewController: UIViewController {
                   Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
                   Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
                   Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
                   Item([Item(nil), Item(nil), Item(nil), Item(nil)])]
     
     @IBOutlet weak var tableView: UITableView!
@@ -41,8 +56,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 10000
+        
         
         let cell = UINib.init(nibName: "Cell", bundle: Bundle.main)
         tableView.register(cell, forCellReuseIdentifier: "Cell")
@@ -99,6 +115,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView.estimatedRowHeight = 44
         return UITableView.automaticDimension
     }
     
