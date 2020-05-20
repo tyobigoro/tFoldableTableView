@@ -8,13 +8,17 @@
 
 import UIKit
 
-class Items {
+class Item {
     var name: String = "B"
+    var showsSelf: Bool = true
     var showsContents: Bool = true
+    
     var items: [Item] = [Item]()
     
-    init(items: [Item]) {
-        self.items = items
+    init(_ items: [Item]?) {
+        if let items = items {
+            self.items = items
+        }
     }
     
     func changeVisiblity(section: Int) -> [IndexPath]{
@@ -26,10 +30,10 @@ class Items {
 }
 
 
-class Item {
-    var name: String = "A"
-    var showsSelf: Bool = true
-}
+//class Item {
+//    var name: String = "A"
+//    var showsSelf: Bool = true
+//}
 
 class ViewController: UIViewController {
 
@@ -44,14 +48,14 @@ class ViewController: UIViewController {
     //              [Item(), Item(), Item(), Item()]]
     
     
-    var dArray = [Items(items: [Item(), Item(), Item(), Item()]),
-                  Items(items: [Item(), Item(), Item(), Item()]),
-                  Items(items: [Item(), Item(), Item(), Item()]),
-                  Items(items: [Item(), Item(), Item(), Item()]),
-                  Items(items: [Item(), Item(), Item(), Item()]),
-                  Items(items: [Item(), Item(), Item(), Item()]),
-                  Items(items: [Item(), Item(), Item(), Item()]),
-                  Items(items: [Item(), Item(), Item(), Item()])]
+    var dArray = [Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
+                  Item([Item(nil), Item(nil), Item(nil), Item(nil)])]
     
     @IBOutlet weak var tableView: UITableView!
     
