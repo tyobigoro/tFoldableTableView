@@ -9,44 +9,23 @@
 import UIKit
 
 class Item {
-    var name: String = "B"
+    var name: String = "A"
     var showsSelf: Bool = true
     var showsContents: Bool = true
-    
     var items: [Item] = [Item]()
     
     init(_ items: [Item]?) {
-        if let items = items {
-            self.items = items
-        }
+        if let items = items { self.items = items }
     }
     
     func changeVisiblity(section: Int) -> [IndexPath]{
         showsContents.toggle()
         items.forEach { $0.showsSelf = showsContents }
         return items.enumerated().map { IndexPath(row: $0.offset, section: section) }
-        
     }
 }
 
-
-//class Item {
-//    var name: String = "A"
-//    var showsSelf: Bool = true
-//}
-
 class ViewController: UIViewController {
-
-    //var dArray = [[Item(), Item(), Item(), Item()],
-    //              [Item(), Item(), Item(), Item()],
-    //              [Item(), Item(), Item(), Item()],
-    //              [Item(), Item(), Item(), Item()],
-    //              [Item(), Item(), Item(), Item()],
-    //              [Item(), Item(), Item(), Item()],
-    //              [Item(), Item(), Item(), Item()],
-    //              [Item(), Item(), Item(), Item()],
-    //              [Item(), Item(), Item(), Item()]]
-    
     
     var dArray = [Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
                   Item([Item(nil), Item(nil), Item(nil), Item(nil)]),
