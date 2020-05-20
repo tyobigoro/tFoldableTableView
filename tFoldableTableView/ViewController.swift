@@ -8,6 +8,24 @@
 
 import UIKit
 
+class Items {
+    var name: String = "B"
+    var showsContents: Bool = true
+    var items: [Item] = [Item]()
+    
+    init(items: [Item]) {
+        self.items = items
+    }
+    
+    func changeVisiblity(section: Int) -> [IndexPath]{
+        showsContents.toggle()
+        items.forEach { $0.showsSelf = showsContents }
+        return items.enumerated().map { IndexPath(row: $0.offset, section: section) }
+        
+    }
+}
+
+
 class Item {
     var name: String = "A"
     var showsSelf: Bool = true
@@ -15,15 +33,25 @@ class Item {
 
 class ViewController: UIViewController {
 
-    var dArray = [[Item(), Item(), Item(), Item()],
-                  [Item(), Item(), Item(), Item()],
-                  [Item(), Item(), Item(), Item()],
-                  [Item(), Item(), Item(), Item()],
-                  [Item(), Item(), Item(), Item()],
-                  [Item(), Item(), Item(), Item()],
-                  [Item(), Item(), Item(), Item()],
-                  [Item(), Item(), Item(), Item()],
-                  [Item(), Item(), Item(), Item()]]
+    //var dArray = [[Item(), Item(), Item(), Item()],
+    //              [Item(), Item(), Item(), Item()],
+    //              [Item(), Item(), Item(), Item()],
+    //              [Item(), Item(), Item(), Item()],
+    //              [Item(), Item(), Item(), Item()],
+    //              [Item(), Item(), Item(), Item()],
+    //              [Item(), Item(), Item(), Item()],
+    //              [Item(), Item(), Item(), Item()],
+    //              [Item(), Item(), Item(), Item()]]
+    
+    
+    var dArray = [Items(items: [Item(), Item(), Item(), Item()]),
+                  Items(items: [Item(), Item(), Item(), Item()]),
+                  Items(items: [Item(), Item(), Item(), Item()]),
+                  Items(items: [Item(), Item(), Item(), Item()]),
+                  Items(items: [Item(), Item(), Item(), Item()]),
+                  Items(items: [Item(), Item(), Item(), Item()]),
+                  Items(items: [Item(), Item(), Item(), Item()]),
+                  Items(items: [Item(), Item(), Item(), Item()])]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -73,7 +101,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dArray[section].filter{ $0.showsSelf == true }.count
+        return dArray[section].items.filter{ $0.showsSelf == true }.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,19 +126,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 extension ViewController: SectionHeaderDelegate {
     
     func sectionBtnDidTap(_ header: UITableViewHeaderFooterView) {
-        guard let seciton = getSection(header: header) else { return }
-        let isVisible = dArray[seciton].first!.showsSelf
-        dArray[seciton].forEach { $0.showsSelf = isVisible ? false : true }
+        guard let section = getSection(header: header) else { return }
+        let _ = dArray[section].changeVisiblity(section: section)
         
         // ここでアニメーション変えてみて
-        tableView.reloadSections(IndexSet(integer: seciton), with: .automatic)
+        tableView.reloadSections(IndexSet(integer: section), with: .automatic)
     }
     
     func rowsBtnDidTap(_ header: UITableViewHeaderFooterView) {
-        guard let seciton = getSection(header: header) else { return }
-        let indexPaths = dArray[seciton].enumerated().map { IndexPath(row: $0.offset, section: seciton)}
-        let isVisible = dArray[seciton].first!.showsSelf
-        dArray[seciton].forEach { $0.showsSelf = isVisible ? false : true }
+        guard let section = getSection(header: header) else { return }
+        let isVisible = dArray[section].showsContents
+        let indexPaths = dArray[section].changeVisiblity(section: section)
         
         // ここでアニメーション変えてみて
         if isVisible {
