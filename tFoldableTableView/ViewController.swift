@@ -17,6 +17,12 @@ class ViewController: UIViewController {
 
     var dArray = [[Item(), Item(), Item(), Item()],
                   [Item(), Item(), Item(), Item()],
+                  [Item(), Item(), Item(), Item()],
+                  [Item(), Item(), Item(), Item()],
+                  [Item(), Item(), Item(), Item()],
+                  [Item(), Item(), Item(), Item()],
+                  [Item(), Item(), Item(), Item()],
+                  [Item(), Item(), Item(), Item()],
                   [Item(), Item(), Item(), Item()]]
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,8 +30,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let cell = UINib.init(nibName: "Cell", bundle: Bundle.main)
+        tableView.register(cell, forCellReuseIdentifier: "Cell")
+        
         let header = UINib.init(nibName: "SectionHeader", bundle: Bundle.main)
         tableView.register(header, forHeaderFooterViewReuseIdentifier: "Header")
+        
+        let footer = UINib.init(nibName: "SectionFooter", bundle: Bundle.main)
+        tableView.register(footer, forHeaderFooterViewReuseIdentifier: "Footer")
         
     }
 
@@ -55,13 +67,18 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return header
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Footer") as! SectionFooter
+        return footer
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dArray[section].filter{ $0.showsSelf == true }.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = String(format: "%02d", indexPath.section) + String(format: "%02d", indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
+        cell.setValueToCell(str: String(format: "%02d", indexPath.section) + String(format: "%02d", indexPath.row))
         return cell
     }
     
@@ -71,6 +88,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 20
     }
 }
 
