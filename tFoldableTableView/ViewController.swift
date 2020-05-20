@@ -17,7 +17,7 @@ class Item {
     init(_ items: [Item]?) {
         if let items = items { self.items = items }
     }
-    
+   
     func changeVisiblity(section: Int) -> [IndexPath]{
         showsContents.toggle()
         items.forEach { $0.showsSelf = showsContents }
@@ -40,6 +40,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 10000
         
         let cell = UINib.init(nibName: "Cell", bundle: Bundle.main)
         tableView.register(cell, forCellReuseIdentifier: "Cell")
@@ -88,13 +91,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
         cell.setValueToCell(str: String(format: "%02d", indexPath.section) + String(format: "%02d", indexPath.row))
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -104,6 +109,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 20
     }
+}
+
+
+extension ViewController: UITextViewDelegate {
+    
 }
 
 extension ViewController: SectionHeaderDelegate {
