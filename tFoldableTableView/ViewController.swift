@@ -18,7 +18,7 @@ class Item {
         if let items = items { self.items = items }
     }
    
-    func changeVisiblity(section: Int) -> [IndexPath]{
+    func changeVisiblity(section: Int) -> [IndexPath] {
         showsContents.toggle()
         items.forEach { $0.showsSelf = showsContents }
         return items.enumerated().map { IndexPath(row: $0.offset, section: section) }
@@ -73,14 +73,12 @@ class ViewController: UIViewController {
 
     func getSection(header: UITableViewHeaderFooterView) -> Int? {
         let point = CGPoint(x: header.frame.midX, y: header.frame.midY)
-        var i: Int? = nil
         for s in 0 ..< dArray.count {
             if tableView.rectForHeader(inSection: s).contains(point) {
-                i = s
-                break
+                return s
             }
         }
-        return i
+        return nil
     }
 
 }
