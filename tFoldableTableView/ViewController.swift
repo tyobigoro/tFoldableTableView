@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableView.automaticDimension
-        //tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
         //tableView.sectionFooterHeight = UITableView.automaticDimension
         
         let cell = UINib.init(nibName: "Cell", bundle: Bundle.main)
@@ -118,9 +118,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        //tableView.estimatedSectionHeaderHeight = 60
-        //return UITableView.automaticDimension
-        return 60
+        tableView.estimatedSectionHeaderHeight = 40
+        return UITableView.automaticDimension
+        //return 60
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

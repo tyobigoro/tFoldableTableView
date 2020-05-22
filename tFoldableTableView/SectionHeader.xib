@@ -17,10 +17,10 @@
                     <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYK-DS-8nV">
-                    <rect key="frame" x="30" y="15" width="60" height="30"/>
+                    <rect key="frame" x="30" y="7.5" width="60" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="JNK-5h-KeU"/>
-                        <constraint firstAttribute="height" constant="30" id="cBO-7e-WXP"/>
+                        <constraint firstAttribute="height" constant="45" id="cBO-7e-WXP"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="section"/>
@@ -29,9 +29,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMh-nQ-Ig3">
-                    <rect key="frame" x="324" y="15" width="60" height="30"/>
+                    <rect key="frame" x="324" y="7.5" width="60" height="45"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="UrO-dX-46T"/>
+                        <constraint firstAttribute="height" constant="45" id="UrO-dX-46T"/>
                         <constraint firstAttribute="width" constant="60" id="Zqu-nh-Edv"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
